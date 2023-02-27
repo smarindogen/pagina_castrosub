@@ -1,0 +1,15 @@
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  z-index: 2;
+}
+
+.cuerpo{
+  height: 100%;
+}
+.mat-icon-button ::ng-deep .mat-button-focus-overlay {
+  display: none;
+}
