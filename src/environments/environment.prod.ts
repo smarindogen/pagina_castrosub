@@ -1,4 +1,5 @@
 export const environment = {
+  backend: "http://localhost:3500",
   firebase: {
     projectId: 'castrosub-907ca',
     appId: '1:654790319561:web:cd789ba51a299783405c18',

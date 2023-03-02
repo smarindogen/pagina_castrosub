@@ -29,6 +29,12 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDialogModule} from "@angular/material/dialog";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {ErrorsInterceptorService} from "./interceptors/errors.interceptor.service";
+import {BaseUrlInterceptorService} from "./interceptors/base-url-interceptor.service";
+import { NgxSpinnerModule } from "ngx-spinner";
+import {LoadingInterceptorService} from "./interceptors/loading.interceptor.service";
+
 
 
 @NgModule({
@@ -47,6 +53,9 @@ import {MatDialogModule} from "@angular/material/dialog";
   ],
   imports: [
     BrowserAnimationsModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     MatDialogModule,
     BrowserModule,
     AppRoutingModule,
@@ -66,7 +75,28 @@ import {MatDialogModule} from "@angular/material/dialog";
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorsInterceptorService,
+      multi: true
+    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptorService,
+    //   multi: true
+    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BaseUrlInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
