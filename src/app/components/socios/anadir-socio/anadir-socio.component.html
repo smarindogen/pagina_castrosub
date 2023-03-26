@@ -1,0 +1,107 @@
+<h2 mat-dialog-title>Añadir Socio</h2>
+<mat-dialog-content>
+  <form class="w-100" [formGroup]="form">
+    <div class="container w-100">
+      <div class="row w-100">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre" required>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Apellidos</mat-label>
+            <input matInput formControlName="apellidos" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row w-100">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>DNI</mat-label>
+            <input matInput placeholder="pat@example.com" formControlName="dni" required pattern="[0-9]{8}[A-Za-z]{1}">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha Nacimiento</mat-label>
+            <input matInput formControlName="fnacimiento" placeholder="01/01/2000" required>
+            <mat-error *ngIf="form.get('fnacimiento')?.invalid">
+              Poner fecha: dd/mm/aaaa
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row w-100">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Telefono</mat-label>
+            <input type="tel" matInput formControlName="tlf" required pattern="[0-9]{9}">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline" id="emailSocio">
+            <mat-label>E-mail</mat-label>
+            <input matInput formControlName="email" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row w-100">
+        <mat-form-field appearance="outline">
+          <mat-label>Dirección</mat-label>
+          <input matInput formControlName="direccion" required>
+        </mat-form-field>
+      </div>
+      <div class="row w-100">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Actividad</mat-label>
+            <mat-select formControlName="actividad">
+              <mat-option value="Pesca Submarina">Pesca Submarina</mat-option>
+              <mat-option value="Buceo Autonomo">Buceo Autonomo</mat-option>
+              <mat-option value="Ambas">Ambas</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha Serguro</mat-label>
+            <input matInput formControlName="fseguro" placeholder="01/01/2000" required>
+            <mat-error *ngIf="form.get('fseguro')?.invalid">
+              Poner fecha: dd/mm/aaaa
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row w-100">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Cargo</mat-label>
+            <mat-select formControlName="cargo">
+              <mat-option value="Presidente">Presidente</mat-option>
+              <mat-option value="Vicepresidente">Vicepresidente</mat-option>
+              <mat-option value="Secretario">Secretario</mat-option>
+              <mat-option value="Tesorero">Tesorero</mat-option>
+              <mat-option value="Vocal">Vocal</mat-option>
+              <mat-option value="Socio">Socio</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Inscripcion</mat-label>
+            <mat-select formControlName="inscripcion">
+              <mat-option value="true">Renovado</mat-option>
+              <mat-option value="false">No renovado</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-stroked-button mat-dialog-close>Cancelar</button>
+  <button mat-stroked-button (click)="guardar(form)">Guardar</button>
+</mat-dialog-actions>

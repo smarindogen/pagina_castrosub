@@ -1,0 +1,19 @@
+<img [src]="imagen | safeResourceUrl" class="img-fluid">
+<form class="formArchivo" [formGroup]="formArchivo">
+  <mat-form-field appearance="outline" class="w-100 p-1">
+    <mat-label>Elegir imagen</mat-label>
+    <ngx-mat-file-input formControlName="file"
+                        [accept]="'image/jpeg'"
+                        (change)="visualizar(formArchivo)"
+                        required></ngx-mat-file-input>
+    <mat-icon matSuffix>file_open</mat-icon>
+    <mat-error *ngIf="formArchivo.get('file')?.hasError('maxContentSize')">
+      El tamaño maximo no debe exceder {{formArchivo.get('file')?.getError('maxContentSize').maxSize | byteFormat}} ({{formArchivo.get('file')?.getError('maxContentSize').actualSize
+      | byteFormat}}).
+    </mat-error>
+  </mat-form-field>
+</form>
+<div>
+  <button mat-button  (click)="subirImagen(formArchivo)" >Subir</button>
+  <button mat-button mat-dialog-close >Cerrar</button>
+</div>

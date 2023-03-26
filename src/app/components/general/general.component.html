@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="general.component.css">
+  <title>Document</title>
+</head>
+<body>
+<div id="fondoPagina">
+<router-outlet></router-outlet>
+<div id="nav_bar">
+  <ul>
+    <li> <a [routerLink]="['/general/socios']"  matRipple [matRippleColor]="color">
+      <img class="img-fluid" src="../../../assets/group_FILL1_wght400_GRAD0_opsz48.png">
+    </a>
+    </li>
+    <li><a [routerLink]="['/general/material']" matRipple [matRippleColor]="color">
+      <img class="img-fluid" src="../../../assets/img.png">
+      </a>
+    <li>
+      <img class="img-fluid" src="../../../assets/carrito.png">
+    </li>
+    <li>
+      <img class="img-fluid" src="../../../assets/account_balance_wallet_FILL1_wght400_GRAD0_opsz48.png">
+    </li>
+    <li><a [routerLink]="['/general/info']" matRipple [matRippleColor]="color">
+      <img  class="img-fluid" src="../../../assets/info_FILL1_wght400_GRAD0_opsz48.png">
+    </a>
+    </li>
+    <li (click)="logout()">
+      <img class="img-fluid" src="../../../assets/logout_FILL1_wght400_GRAD0_opsz48.png">
+    </li>
+  </ul>
+</div>
+</div>
+</body>

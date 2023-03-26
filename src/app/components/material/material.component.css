@@ -1,0 +1,38 @@
+:host{display: contents; }
+
+mat-toolbar{
+  height: 7%;
+  background-color: #37474F;
+}
+mat-toolbar span{
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.cuerpo{
+  margin: 1%;
+  position: fixed;
+  height: 80%;
+  width: 98%;
+  top: 7%;
+  overflow: scroll;
+}
+
+mat-card{
+  width: 100%;
+}
+
+img{
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 grey;
+
+}
+mat-card-subtitle{
+  font-size: 10px !important;
+}
+
+.anadir{
+  position: absolute;
+  bottom: 12%;
+  right: 2%;
+}

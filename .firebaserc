@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "castrosub-907ca"
+  },
+  "targets": {
+    "castrosub-907ca": {
+      "hosting": {
+        "castrosub": [
+          "castrosub-907ca"
+        ]
+      }
+    }
+  }
+}

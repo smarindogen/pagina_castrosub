@@ -1,0 +1,53 @@
+#layout{
+  height: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 55% 45%;
+  justify-items: center;
+}
+#logo img{
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  top:50%;
+  transform: translateY(-50%);
+}
+#formulario{
+  width: 100%;
+  max-width: 300px;
+}
+#btn{
+  margin: 2%;
+  width:96%;
+  min-height: 50px;
+}
+.mat-stroked-button {
+  border: 2px solid currentColor;
+}
+p{
+  margin: 10px;
+}
+#contrasena {
+  width: 100%;
+}
+#email{
+  width:100%;
+}
+#contrasena button {
+  background-color: transparent;
+  border: none;
+}
+#rrss{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#rrss img {
+  width: 100%;
+  max-width: 30px;
+  margin-left: 10px;
+}
+#img2{
+  border-radius: 5px;
+}
+

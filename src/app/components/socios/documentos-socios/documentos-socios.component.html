@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>Documentos Socio</h2>
+<mat-dialog-content>
+  <mat-accordion class="example-headers-align mb-1">
+    <mat-expansion-panel *ngFor="let documento of tdocumentos">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{documento}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ng-container *ngFor="let doc of docs">
+        <div  *ngIf="doc.tdoc == documento"class="mb-2">
+          <div class="documento" matRipple [matRippleColor]="color"  (click)="verDocumento(doc)">{{doc.ndoc}} </div>
+          <mat-icon class="eleminarDocumento" (click)="dltDoc(doc)">delete</mat-icon>
+        </div>
+      </ng-container>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-expansion-panel [expanded]="step === 0"
+                       (opened)="setStep(0)"
+                       class="mt-1 mat-elevation-z2" >
+    <mat-expansion-panel-header>
+      Subir documento
+    </mat-expansion-panel-header>
+      <form class="w-100" [formGroup]="form">
+        <div class="row w-100">
+          <div class="col">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre documento</mat-label>
+              <input matInput formControlName="ndoc" required>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="outline">
+              <mat-label>Tipo de documento</mat-label>
+              <mat-select formControlName="tdoc">
+                <mat-option value="Titulacion">Titulación</mat-option>
+                <mat-option value="Seguro">Seguro</mat-option>
+                <mat-option value="Documentacion">Documentacion</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="outline">
+              <mat-label>Elegir documento</mat-label>
+              <ngx-mat-file-input formControlName="file"
+                                  [accept]="'.pdf,image/*'"
+                                  required></ngx-mat-file-input>
+              <mat-icon matSuffix>file_open</mat-icon>
+              <mat-error *ngIf="form.get('file')?.hasError('maxContentSize')">
+                El tamaño maximo no debe exceder {{form.get('file')?.getError('maxContentSize').maxSize | byteFormat}} ({{form.get('file')?.getError('maxContentSize').actualSize
+                | byteFormat}}).
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+      <button mat-stroked-button (click)="guardarDocumento(form)">Subir
+        <mat-icon>upload</mat-icon>
+      </button>
+  </mat-expansion-panel>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-stroked-button mat-dialog-close="">Aceptar</button>
+</mat-dialog-actions>

@@ -1,0 +1,30 @@
+<mat-toolbar class="mat-elevation-z1">
+  <span>Material</span>
+</mat-toolbar>
+<div class="cuerpo">
+  <mat-card class="p-2 mb-1" *ngFor="let item of listaMaterial">
+    <mat-card-title-group>
+    <img mat-card-sm-image class="m-1" [src]="item.imagen | safeResourceUrl" (click)="openDialogImagen(item.material)">
+      <mat-card-title>{{item.material.tipo}}</mat-card-title>
+      <mat-card-subtitle>
+        <div class="marca">MARCA: {{item.material.marca}}</div>
+        <div class="talla">TALLA: {{item.material.talla_capacidad}}</div>
+        <div class="descripcion">DESCRIPCIÓN: {{item.material.descripcion}}</div>
+      </mat-card-subtitle>
+    </mat-card-title-group>
+          <mat-card-actions class="p-0" *ngIf="socioActual.cargo!='Socio'" align="end">
+            <button mat-button class="btnModificar" (click)="openUpdateDialog(item.material)">
+              MODIFICAR <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-button class="btnBorrar">
+              ELIMINAR <mat-icon>delete</mat-icon>
+            </button>
+        </mat-card-actions>
+  </mat-card>
+</div>
+<div class="anadir" (click)="openCreateDialog()">
+  <button mat-fab color="primary" aria-label="Añadir Socio">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+

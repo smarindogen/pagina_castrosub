@@ -1,0 +1,49 @@
+<mat-toolbar class="mat-elevation-z1">
+  <span>Socios</span>
+</mat-toolbar>
+<div class="cuerpo">
+  <div class="example-container mat-elevation-z8 overflow-scroll" tabindex="0">
+
+  <table id="tabla_socios" class="w-100" mat-table [dataSource]="dataSource" >
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
+      <td mat-cell *matCellDef="let socio"> {{socio.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellidos">
+      <th mat-header-cell *matHeaderCellDef> APELLIDOS </th>
+      <td mat-cell *matCellDef="let socio"> {{socio.apellidos}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cargo">
+      <th mat-header-cell *matHeaderCellDef> CARGO </th>
+      <td mat-cell *matCellDef="let socio"> {{socio.cargo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actividad">
+      <th mat-header-cell *matHeaderCellDef> ACTIVIDAD </th>
+      <td mat-cell *matCellDef="let socio"> {{socio.actividad}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="modificar">
+      <th mat-header-cell *matHeaderCellDef> MODIFICAR </th>
+      <td mat-cell *matCellDef="let socio">
+        <button mat-icon-button *ngIf="socioActual.cargo!='Socio'|| socio.email==this.socioActual.email" (click)="openUpdateDialog(socio)">
+        <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="socioActual.cargo!='Socio'|| socio.email==this.socioActual.email" (click)="openDocumentDialog(socio)">
+          <mat-icon>folder_open</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
+</div>
+<div class="anadir" (click)="openDialog()">
+  <button mat-fab color="primary" aria-label="Añadir Socio">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,70 @@
+:host{display: contents; }
+
+mat-toolbar{
+  height: 7%;
+  background-color: #37474F;
+}
+mat-toolbar span{
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.cuerpo{
+  margin: 1%;
+  position: fixed;
+  height: 80%;
+  width: 98%;
+  top: 7%;
+  overflow: scroll;
+}
+
+::ng-deep .mat-dialog-container{
+  padding: 0!important;
+}
+
+
+mat-form-field{
+  width: 100%;
+}
+
+.row{
+  margin: 0 !important;
+}
+
+::ng-deep .mat-dialog-content {
+  margin: 0 !important;
+  padding-bottom: 10px !important;
+}
+.file-input {
+  display: none;
+}
+mat-dialog-actions{
+  margin: 0 !important;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  background: white;
+}
+.documento{
+  vertical-align: middle;
+  font-size: 16px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.eleminarDocumento{
+  float:right;
+  cursor: pointer;
+}
+mat-icon{
+  height: 20px !important;
+  width: 20px !important;
+}
+
+.mat-expansion-panel-header-description {
+  flex-grow: 1;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
